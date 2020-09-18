@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class PricingCalculatorPage {
 
     private WebDriver driver;
@@ -40,6 +42,12 @@ public class PricingCalculatorPage {
     @FindBy(xpath = "//*[@id='select_option_257']")
     private WebElement select2x375GB;
 
+    @FindBy(xpath = "//*[@id='select_value_label_59']")
+    private WebElement committedUsageSelect;
+
+    @FindBy(xpath = "//*[@id='select_option_93']")
+    private WebElement selectOneYear;
+
     @FindBy(xpath = "//button[@aria-label='Add to Estimate']")
     private WebElement estimateButton;
 
@@ -61,15 +69,29 @@ public class PricingCalculatorPage {
         numberOfInstancesInput.sendKeys("4");
         jse.executeScript("scroll(0, 1050);");
         machineTypeSelectButton.click();
-        jse.executeScript("scroll(0, 1050);");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         standart8option.click();
-        jse.executeScript("scroll(0, 500);");
+
         addGPUsCheckbox.click();
         selectGPUType.click();
         selectTESLAT4.click();
+
         selectSSD.click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         select2x375GB.click();
+
         jse.executeScript("scroll(0, 5000);");
+        committedUsageSelect.click();
+        selectOneYear.click();
+
         estimateButton.click();
         emailEstimateButton.click();
 
