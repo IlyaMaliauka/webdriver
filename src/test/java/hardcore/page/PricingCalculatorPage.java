@@ -21,7 +21,7 @@ public class PricingCalculatorPage {
     @FindBy(id = "input_60")
     private WebElement numberOfInstancesInput;
 
-    @FindBy(id = "select_value_label_57")
+    @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.instance']")
     private WebElement machineTypeSelectButton;
 
     @FindBy(xpath = "//md-option[@value='CP-COMPUTEENGINE-VMIMAGE-N1-STANDARD-8']")
@@ -67,7 +67,7 @@ public class PricingCalculatorPage {
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("input_60")));
         numberOfInstancesInput.sendKeys("4");
-        jse.executeScript("scroll(0, 1050);");
+       // jse.executeScript("scroll(0, 1050);");
         machineTypeSelectButton.click();
         try {
             Thread.sleep(3000);
@@ -88,7 +88,7 @@ public class PricingCalculatorPage {
         }
         select2x375GB.click();
 
-        jse.executeScript("scroll(0, 5000);");
+       // jse.executeScript("scroll(0, 5000);");
         committedUsageSelect.click();
         selectOneYear.click();
 
